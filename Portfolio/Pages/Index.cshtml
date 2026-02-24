@@ -8,7 +8,7 @@
     <h1 class="text-center text-primary">Coding Portfolio</h1> # Display the title of the page in a heading
     <p class="text-center">Showcasing my skills and projects!</p>
 
-# Display the projects and skills in separate sections using Bootstrap cards
+ @* Display the projects and skills in separate sections using Bootstrap cards *@
     <div class="card my-4">     
         <div class="card-body">
             <h2>My Projects</h2>
@@ -35,7 +35,7 @@
             }
         </div>
     </div>
-# Display only the skills with a proficiency level of 4 or higher
+ @* Display only the skills with a proficiency level of 4 or higher *@
     <div class="card my-4">
         <div class="card-body">
             <h2>Proficiency Level (4 or Higher)</h2>
@@ -45,7 +45,7 @@
                 {
                     <div class="alert alert-success">
                         <strong>@Model.Skills[i].Name</strong>
-                        <span class="badge bg-primary">Level @Model.Skills[i].ProficiencyLevel</span> # Display the skill name and proficiency level in a badge
+                        @* <span class="badge bg-primary">Level @Model.Skills[i].ProficiencyLevel</span>  Display the skill name and proficiency level in a badge *@
                     </div>
                 }
             }
