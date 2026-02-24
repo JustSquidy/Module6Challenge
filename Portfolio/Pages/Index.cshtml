@@ -1,0 +1,56 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Coding Portfolio";
+}
+
+<div class="container mt-4"> 
+    <h1 class="text-center text-primary">Coding Portfolio</h1> # Display the title of the page in a heading
+    <p class="text-center">Showcasing my skills and projects!</p>
+
+# Display the projects and skills in separate sections using Bootstrap cards
+    <div class="card my-4">     
+        <div class="card-body">
+            <h2>My Projects</h2>
+            @for (int i = 0; i < Model.Projects.Length; i++)
+            {
+                <div class="alert alert-success">
+                    <strong>@Model.Projects[i].Title</strong> - 
+                    Description: @Model.Projects[i].Description -  
+                    Year: @Model.Projects[i].Year
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="card my-4">
+        <div class="card-body">
+            <h2>My skills</h2>
+            @for (int i = 0; i < Model.Skills.Length; i++)
+            {
+                <div class="alert alert-success">
+                    <strong>@Model.Skills[i].Name</strong>
+                    <span class="badge bg-primary ">Level @Model.Skills[i].ProficiencyLevel</span>
+                </div>
+            }
+        </div>
+    </div>
+# Display only the skills with a proficiency level of 4 or higher
+    <div class="card my-4">
+        <div class="card-body">
+            <h2>Proficiency Level (4 or Higher)</h2>
+            @for (int i = 0; i < Model.Skills.Length; i++)
+            {
+                @if (Model.Skills[i].ProficiencyLevel >= 4)
+                {
+                    <div class="alert alert-success">
+                        <strong>@Model.Skills[i].Name</strong>
+                        <span class="badge bg-primary">Level @Model.Skills[i].ProficiencyLevel</span> # Display the skill name and proficiency level in a badge
+                    </div>
+                }
+            }
+        </div>
+    </div>    
+    
+</div>
+
